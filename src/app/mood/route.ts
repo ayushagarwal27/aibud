@@ -17,9 +17,10 @@ export async function POST(req: Request) {
         novel: z.string(),
       }),
     }),
-    prompt: ` Hi, can you please provide me recommendation for One Song, One Movie, One Tv Show and One novel based on my mood.
+    prompt: `Hi, can you please provide me recommendation for One Song, One Movie, One Tv Show and One novel based on my mood.
 
       ${mood}`,
   });
+
   return NextResponse.json(object);
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import {
   Select,
   SelectContent,
@@ -8,10 +8,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { MoodTypes } from "@/app/page";
+interface MoodSelect {
+  handleMoodSelect: (selectedMood: MoodTypes) => void;
+}
 
-const MoodSelect = () => {
+const MoodSelect: FC<MoodSelect> = ({ handleMoodSelect }) => {
   return (
-    <Select>
+    <Select onValueChange={(value) => handleMoodSelect(value as MoodTypes)}>
       <SelectTrigger className="w-[250px] bg-amber-200">
         <SelectValue placeholder="Select your mood" />
       </SelectTrigger>
@@ -19,10 +23,9 @@ const MoodSelect = () => {
         <SelectGroup className={"bg-pink-200"}>
           <SelectLabel>Mood</SelectLabel>
           <SelectItem value="happy">🙂 Happy</SelectItem>
-          <SelectItem value="banana">😔 Sad</SelectItem>
-          <SelectItem value="blueberry">Excited</SelectItem>
-          <SelectItem value="grapes">Grumpy</SelectItem>
-          <SelectItem value="pineapple">Fine</SelectItem>
+          <SelectItem value="sad">😔 Sad</SelectItem>
+          <SelectItem value="excited">Excited</SelectItem>
+          <SelectItem value="fine">Fine</SelectItem>
         </SelectGroup>
       </SelectContent>
     </Select>
