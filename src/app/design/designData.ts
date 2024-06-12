@@ -1,0 +1,55 @@
+const colors = [
+  "Black",
+  "White",
+  "Gray",
+  "Navy Blue",
+  "Olive Green",
+  "Camel",
+  "Rust",
+  "Red",
+  "Royal Blue",
+  "Emerald Green",
+  "Beige",
+  "Burgundy",
+  "Blush Pink",
+  "Mustard Yellow",
+  "Taupe",
+];
+
+const itemsTypes = [
+  "Saree",
+  "Lehenga Choli",
+  "Anarkali Suit",
+  "Maxi Dress",
+  "Cocktail Dress",
+  "Salwar Kameez",
+  "Patiala Suit",
+  "Churidar Suit",
+  "Wrap Dress",
+  "Shift Dress",
+  "Sharara",
+  "Gharara",
+  "Palazzo Suit",
+  "Punjabi Suit",
+  "A-line Dress",
+];
+
+const inspirations = [
+  "Indian",
+  "Egyptian",
+  "Arabic",
+  "Japanese",
+  "Chinese",
+  "Korean",
+  "Greek",
+  "Roman",
+  "Italian",
+  "French",
+  "Spanish",
+  "British",
+  "American",
+  "African",
+  "Scandinavian",
+];
+
+export { inspirations, colors, itemsTypes };

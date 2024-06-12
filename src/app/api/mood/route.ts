@@ -8,7 +8,7 @@ export async function POST(req: Request) {
   const { mood } = await req.json();
 
   const { object } = await generateObject({
-    model: openai("gpt-4-turbo"),
+    model: openai("gpt-4o"),
     schema: z.object({
       data: z.object({
         movie: z.string(),
@@ -21,6 +21,5 @@ export async function POST(req: Request) {
 
       ${mood}`,
   });
-
   return NextResponse.json(object);
 }

@@ -8,7 +8,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { MoodTypes } from "@/app/page";
+import { MoodTypes } from "@/app/mood/page";
 interface MoodSelect {
   handleMoodSelect: (selectedMood: MoodTypes) => void;
 }
@@ -16,7 +16,7 @@ interface MoodSelect {
 const MoodSelect: FC<MoodSelect> = ({ handleMoodSelect }) => {
   return (
     <Select onValueChange={(value) => handleMoodSelect(value as MoodTypes)}>
-      <SelectTrigger className="w-[250px] bg-amber-200">
+      <SelectTrigger className="w-[250px] bg-amber-200 mt-[80px] mb-[20px]">
         <SelectValue placeholder="Select your mood" />
       </SelectTrigger>
       <SelectContent>
