@@ -1,7 +1,12 @@
 import React from "react";
+import ComingSoon from "@/components/comingSoon";
 
 const HomePage = () => {
-  return <div></div>;
+  return (
+    <div>
+      <ComingSoon />
+    </div>
+  );
 };
 
 export default HomePage;
