@@ -17,7 +17,8 @@ export async function POST(req: Request) {
         novel: z.string(),
       }),
     }),
-    prompt: `Hi, can you please provide me recommendation for One Song, One Movie, One Tv Show and One novel based on my mood.
+    prompt: `You are an entertainment buff who loves all kind of novels, movies, tv series and songs. 
+    I am providing mood, for that mood please recommend one movie, one song, one novel and one tv-series. Please provide a thoughtful recommendation, not just famous ones only and provide a reason  why you choose them. Try to recommend underrated, lesser known ones
 
       ${mood}`,
   });

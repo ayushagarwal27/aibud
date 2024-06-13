@@ -2,8 +2,13 @@
 
 import { useEffect, useState } from "react";
 import MovieTvShow from "@/components/mood/MovieTvShow";
-import YoutubeVideo from "@/components/mood/YoutubeVideo";
 import MoodSelect from "@/components/mood/MoodSelect";
+import dynamic from "next/dynamic";
+
+const YoutubeVideo = dynamic(
+  () => import("../../components/mood/YoutubeVideo"),
+  { ssr: false }
+);
 
 interface DataType {
   movie: string;

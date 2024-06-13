@@ -5,6 +5,7 @@ import { RiNetflixFill } from "react-icons/ri";
 import { SiAppletv, SiPrime } from "react-icons/si";
 import ProgressiveImage from "@/components/progressiveImage";
 import { useScreenDetector } from "@/hooks/useScreenDetector";
+import Link from "next/link";
 
 interface DescriptiveCardProps {
   streamData: StreamDataType;
@@ -58,15 +59,17 @@ const MovieTvShowCard: FC<DescriptiveCardProps> = ({ streamData }) => {
               </svg>
             ))}
           </div>
-          <FaImdb
-            className={
-              "bg-black text-yellow-400 hover:text-black hover:bg-yellow-500 cursor-pointer"
-            }
-            size={32}
-            onClick={() =>
-              (window.location.href = `https://www.imdb.com/title/${streamData.imdbId}`)
-            }
-          />
+          <Link
+            href={`https://www.imdb.com/title/${streamData.imdbId}`}
+            target={"_blank"}
+          >
+            <FaImdb
+              className={
+                "bg-black text-yellow-400 hover:text-black hover:bg-yellow-500 cursor-pointer"
+              }
+              size={32}
+            />
+          </Link>
         </div>
 
         <p className={"text-accent text-[16px] mt-2"}>
@@ -83,40 +86,43 @@ const MovieTvShowCard: FC<DescriptiveCardProps> = ({ streamData }) => {
             Watch options:{" "}
           </span>
           {streamData.streamingOptions.in?.map((option) => {
+            let OTT = <></>;
+
             if (option.service.id === "netflix") {
-              return (
+              OTT = (
                 <RiNetflixFill
                   className={"text-red-600 cursor-pointer hover:text-gray-500"}
                   key={option.service.id}
                   size={28}
-                  onClick={() => (window.location.href = option.link)}
                 />
               );
             } else if (option.service.id === "prime") {
-              return (
-                <>
-                  <SiPrime
-                    className={
-                      "text-blue-400 cursor-pointer hover:text-gray-500"
-                    }
-                    size={38}
-                    key={option.service.id}
-                    onClick={() => (window.location.href = option.link)}
-                  />
-                </>
+              OTT = (
+                <SiPrime
+                  className={"text-blue-400 cursor-pointer hover:text-gray-500"}
+                  size={38}
+                />
               );
             } else if (option.service.id === "apple") {
-              return (
+              OTT = (
                 <SiAppletv
                   className={
                     "bg-white text-black p-[2px] rounded-xl cursor-pointer hover:text-gray-500"
                   }
                   size={28}
                   key={option.service.id}
-                  onClick={() => (window.location.href = option.link)}
                 />
               );
             }
+            return (
+              <Link
+                key={option.service.id}
+                href={option.link}
+                target={"_blank"}
+              >
+                {OTT}
+              </Link>
+            );
           })}
         </div>
       </div>

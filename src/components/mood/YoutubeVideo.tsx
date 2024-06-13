@@ -33,14 +33,15 @@ const YoutubeVideo: FC<YoutubeVideoProps> = ({ searchTerm }) => {
           });
       });
     }
-
-    getYoutubeVideoID();
+    if (typeof window !== "undefined") {
+      getYoutubeVideoID();
+    }
   }, []);
 
   return (
     <div className="flex flex-col max-w-md overflow-hidden shadow-lg">
       <BackgroundGradient className="h-56 overflow-hidden w-full">
-        {true ? (
+        {ytbId ? (
           <iframe
             src={`https://www.youtube.com/embed/${ytbId}`}
             // frameBorder="0"
