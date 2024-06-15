@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import MovieTvShow from "@/components/mood/MovieTvShow";
 import MoodSelect from "@/components/mood/MoodSelect";
 import dynamic from "next/dynamic";
+import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
 
 const YoutubeVideo = dynamic(
   () => import("../../components/mood/YoutubeVideo"),
@@ -51,20 +52,22 @@ export default function Home() {
   }
 
   return (
-    <div className={"flex flex-col items-center mb-[60px]"}>
-      <MoodSelect handleMoodSelect={handleMoodSelect} />
-      <div className={"grid md:grid-cols-2  gap-4 max-w-[1200px] mx-12"}>
-        {data ? (
-          <>
-            <MovieTvShow type={"movie"} name={data.movie} />
-            <MovieTvShow type={"series"} name={data.tvShow} />
-            <YoutubeVideo searchTerm={data.song} />
-            <p className={"text-white"}>{data.novel}</p>
-          </>
-        ) : (
-          ""
-        )}
+    <BackgroundGradientAnimation>
+      <div className={"flex flex-col items-center mb-[60px]"}>
+        <MoodSelect handleMoodSelect={handleMoodSelect} />
+        <div className={"grid md:grid-cols-2  gap-4 max-w-[1200px] mx-12"}>
+          {data ? (
+            <>
+              <MovieTvShow type={"movie"} name={data.movie} />
+              <MovieTvShow type={"series"} name={data.tvShow} />
+              <YoutubeVideo searchTerm={data.song} />
+              <p className={"text-white"}>{data.novel}</p>
+            </>
+          ) : (
+            ""
+          )}
+        </div>
       </div>
-    </div>
+    </BackgroundGradientAnimation>
   );
 }

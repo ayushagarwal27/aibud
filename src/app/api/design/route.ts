@@ -1,7 +1,20 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { OpenAI } from "openai";
+import { rateLimit } from "@/app/api/utils";
 
-export async function POST(req: Request) {
+// Create Rate limit
+const ratelimit = rateLimit(1, "24h");
+
+export async function POST(req: NextRequest) {
+  // call ratelimit with request ip
+  const ip = req.ip + " design" ?? "ip";
+  const { success, remaining } = await ratelimit.limit(ip);
+
+  // block the request if unsuccessfull
+  if (!success) {
+    return new NextResponse("Limit Exceeded", { status: 429 });
+  }
+
   const { inspiration, type, color = "violet" } = await req.json();
 
   const response = await new OpenAI().images.generate({

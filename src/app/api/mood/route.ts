@@ -2,10 +2,22 @@
 import { openai } from "@ai-sdk/openai";
 import { generateObject } from "ai";
 import { z } from "zod";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+import { rateLimit } from "@/app/api/utils";
 
-export async function POST(req: Request) {
+const ratelimit = rateLimit(2, "24h");
+
+export async function POST(req: NextRequest) {
   const { mood } = await req.json();
+
+  // call ratelimit with request ip
+  const ip = req.ip + " mood" ?? "ip";
+  const { success, remaining } = await ratelimit.limit(ip);
+
+  // block the request if unsuccessfull
+  if (!success) {
+    return new NextResponse("Limit Exceeded", { status: 429 });
+  }
 
   const { object } = await generateObject({
     model: openai("gpt-4o"),
