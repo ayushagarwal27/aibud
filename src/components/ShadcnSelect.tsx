@@ -24,7 +24,7 @@ const ShadcnSelect: FC<ShadcnSelectProps> = ({
 }) => {
   return (
     <Select onValueChange={onChange}>
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger className="max-w-[250px] font-semibold py-2 px-4 rounded border-transparent">
         <SelectValue placeholder={placeholder} />
       </SelectTrigger>
       <SelectContent>

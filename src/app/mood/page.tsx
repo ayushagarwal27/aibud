@@ -1,15 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import MovieTvShow from "@/components/mood/MovieTvShow";
 import MoodSelect from "@/components/mood/MoodSelect";
 import dynamic from "next/dynamic";
+import YoutubeVideo from "@/components/mood/YoutubeVideo";
 import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
 
-const YoutubeVideo = dynamic(
-  () => import("../../components/mood/YoutubeVideo"),
-  { ssr: false }
-);
+// const YoutubeVideo = dynamic(
+//   () => import("../../components/mood/YoutubeVideo"),
+//   { ssr: false }
+// );
 
 interface DataType {
   movie: string;
@@ -52,8 +53,15 @@ export default function Home() {
   }
 
   return (
-    <BackgroundGradientAnimation>
-      <div className={"flex flex-col items-center mb-[60px]"}>
+    <>
+      <BackgroundGradientAnimation
+        firstColor={"54, 20, 46"}
+        fifthColor={"156, 36, 104"}
+        interactive={false}
+        className={"min-h-svh"}
+        containerClassName={"fixed pointer-events-none -z-10 inset-0"}
+      />
+      <div className={"flex flex-col items-center mb-[60px] mt-[40px]"}>
         <MoodSelect handleMoodSelect={handleMoodSelect} />
         <div className={"grid md:grid-cols-2  gap-4 max-w-[1200px] mx-12"}>
           {data ? (
@@ -68,6 +76,6 @@ export default function Home() {
           )}
         </div>
       </div>
-    </BackgroundGradientAnimation>
+    </>
   );
 }

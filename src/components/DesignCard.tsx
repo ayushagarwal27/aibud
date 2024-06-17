@@ -2,6 +2,8 @@ import React, { FC } from "react";
 import ProgressiveImage from "@/components/progressiveImage";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
+import { FaDownload } from "react-icons/fa";
+import Link from "next/link";
 
 interface CardComponentProps {
   placeholderImg: string;
@@ -16,8 +18,6 @@ const DesignCard: FC<CardComponentProps> = ({
   placeholderImg,
   alt,
   src,
-  color = "pink",
-  inspiration,
   dressType,
 }) => {
   return (
@@ -33,17 +33,16 @@ const DesignCard: FC<CardComponentProps> = ({
         </Zoom>
       </div>
 
-      <div className="w-[150px] -mt-3 overflow-hidden rounded-xl shadow-lg md:w-64 bg-pink-800 z-[10]">
+      <div className="w-[150px] -mt-3 overflow-hidde flex justify-around items-center py-1 rounded-xl shadow-lg md:w-64 bg-black z-[10]">
         <h3 className="py-1 text-[16px] md:text-[18px] font-bold  text-center capitalize text-white">
           {dressType}
         </h3>
-
-        {/*<div className="text-center px-3 py-1  bg-pink-950 font-bold text-[14px] md:text-[16px] capitalize text-white">*/}
-        {/*  /!*{inspiration} inspired*!/*/}
-        {/*  /!*<button className="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-300 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none">*!/*/}
-        {/*  /!*  Add to cart*!/*/}
-        {/*  /!*</button>*!/*/}
-        {/*</div>*/}
+        <Link href={src} download={src}>
+          <FaDownload
+            size={22}
+            className={"text-black bg-white rounded-full p-1"}
+          />
+        </Link>
       </div>
     </div>
   );

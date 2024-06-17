@@ -6,18 +6,7 @@ const ComingSoon = () => {
   return (
     <section className="w-full min-h-screen bg-gray-900">
       <div className="container relative flex flex-col min-h-screen px-6 py-8 mx-auto">
-        <nav className="md:flex md:items-center md:justify-between">
-          <p className={"text-white font-bold text-2xl md:text-4xl"}>
-            <span
-              className={
-                "py-4 pl-4 text-center font-bold from-indigo-200 via-yellow-100 to-yellow-100 bg-gradient-to-r bg-clip-text text-transparent"
-              }
-            >
-              Ai
-            </span>{" "}
-            Bud
-          </p>
-        </nav>
+        <nav className="md:flex md:items-center md:justify-between"></nav>
 
         <section className="flex items-center flex-1 relative">
           <div className="flex flex-col w-full">

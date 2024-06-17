@@ -1,7 +1,6 @@
 import { useState, useEffect, FC } from "react";
+import Image from "next/image";
 interface ProgressiveImageProps {
-  height?: number;
-  width?: number;
   className?: string;
   placeholderImg: any;
   src: string;
@@ -9,25 +8,15 @@ interface ProgressiveImageProps {
 }
 
 const ProgressiveImage: FC<ProgressiveImageProps> = (props) => {
-  const { height, width, placeholderImg, src, alt, className } = props;
-  const [imgSrc, setSrc] = useState(placeholderImg || src);
-  const customClass =
-    placeholderImg && imgSrc === placeholderImg ? "loading" : "loaded";
-  useEffect(() => {
-    const img = new Image();
-    img.src = src;
-    img.onload = () => {
-      setSrc(src);
-    };
-  }, [src]);
+  const { placeholderImg, src, alt, className } = props;
 
   return (
     <img
-      src={imgSrc}
-      className={customClass + " " + className}
-      height={height}
-      width={width}
+      src={src}
+      // loader={placeholderImg}
+      className={className}
       alt={alt}
+      // fill={false}
     />
   );
 };

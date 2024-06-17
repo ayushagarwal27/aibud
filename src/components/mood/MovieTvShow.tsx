@@ -1,7 +1,7 @@
 "use client";
 
 import React, { FC, useEffect, useState } from "react";
-import { getStreamData } from "@/lib/resourceCalls";
+import { getStreamData } from "@/app/api/actions";
 import MovieTvShowCard from "@/components/MovieTvShowCard";
 
 interface MovieTvShowProps {
