@@ -39,7 +39,7 @@ const moodData = [
 const MoodSelect: FC<MoodSelect> = ({ handleMoodSelect }) => {
   return (
     <Select onValueChange={(value) => handleMoodSelect(value as MoodTypes)}>
-      <SelectTrigger className="w-[250px] bg-amber-200 mt-[80px] mb-[20px]">
+      <SelectTrigger className="w-[250px] bg-amber-100 mt-[80px] mb-[20px]">
         <SelectValue placeholder="Select your mood" />
       </SelectTrigger>
       <SelectContent>

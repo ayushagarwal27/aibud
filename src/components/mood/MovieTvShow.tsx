@@ -151,15 +151,11 @@ const dummyData = {
 };
 
 const MovieTvShow: FC<MovieTvShowProps> = ({ type, name }) => {
-  const [streamData, setStreamData] = useState<StreamDataType | null>();
+  const [streamData, setStreamData] = useState<StreamDataType | undefined>();
 
   useEffect(() => {
     getStreamData(name, type).then((data) => setStreamData(data));
   }, []);
-
-  if (!streamData) {
-    return <p>Loading...</p>;
-  }
 
   return <MovieTvShowCard streamData={streamData} />;
 };

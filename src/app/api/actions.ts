@@ -28,7 +28,7 @@ export async function getVideoData(searchTerm: string) {
   });
 
   const response = await youtube.search.list({
-    part: "snippet",
+    part: ["snippet"],
     q: searchTerm,
   });
   // @ts-ignore
