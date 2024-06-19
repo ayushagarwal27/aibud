@@ -1,5 +1,4 @@
 import { useState, useEffect, FC } from "react";
-import Image from "next/image";
 interface ProgressiveImageProps {
   className?: string;
   placeholderImg: any;
@@ -10,15 +9,7 @@ interface ProgressiveImageProps {
 const ProgressiveImage: FC<ProgressiveImageProps> = (props) => {
   const { placeholderImg, src, alt, className } = props;
 
-  return (
-    <img
-      src={src}
-      // loader={placeholderImg}
-      className={className}
-      alt={alt}
-      // fill={false}
-    />
-  );
+  return <img src={src} className={className} alt={alt} />;
 };
 
 export default ProgressiveImage;

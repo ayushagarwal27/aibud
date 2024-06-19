@@ -10,11 +10,10 @@ const ratelimit = rateLimit(2, "24h");
 export async function POST(req: NextRequest) {
   const { mood } = await req.json();
 
-  const ip = req.ip + " mood" ?? "ip";
+  const ip = req.headers.get("x-forwarded-for") + " mood" ?? "ip";
   const { success, remaining } = await ratelimit.limit(ip);
-
   // if (!success) {
-  //   return new NextResponse("Limit Exceeded", { status: 429 });
+  //   return NextResponse.json("Limit Exceeded", { status: 429 });
   // }
 
   const { object } = await generateObject({

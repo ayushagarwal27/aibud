@@ -8,6 +8,7 @@ const ratelimit = rateLimit(1, "24h");
 export async function POST(req: NextRequest) {
   // call ratelimit with request ip
   const ip = req.ip + " design" ?? "ip";
+
   const { success, remaining } = await ratelimit.limit(ip);
 
   // block the request if unsuccessfull

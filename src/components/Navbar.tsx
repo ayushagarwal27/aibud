@@ -9,8 +9,16 @@ import {
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useScreenDetector } from "@/hooks/useScreenDetector";
+import MobileNavbar from "@/components/MobileNavbar";
 
 export function NavbarComponent() {
+  const { isMobile } = useScreenDetector();
+
+  if (isMobile) {
+    return <MobileNavbar />;
+  }
+
   return (
     <div className="relative w-full flex items-center justify-center">
       <Navbar className="top-4" />

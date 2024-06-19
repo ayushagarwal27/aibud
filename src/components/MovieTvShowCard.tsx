@@ -125,7 +125,7 @@ const MovieTvShowCard: FC<DescriptiveCardProps> = ({ streamData }) => {
             Watch options:{" "}
           </span>
           {streamData ? (
-            streamData.streamingOptions.in?.map((option) => {
+            streamData.streamingOptions.in?.map((option, index) => {
               let OTT = <></>;
 
               if (option.service.id === "netflix") {
@@ -160,7 +160,7 @@ const MovieTvShowCard: FC<DescriptiveCardProps> = ({ streamData }) => {
               }
               return (
                 <Link
-                  key={option.service.id}
+                  key={option.service.id + index}
                   href={option.link}
                   target={"_blank"}
                 >

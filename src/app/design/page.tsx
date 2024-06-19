@@ -5,6 +5,7 @@ import * as designData from "./designData";
 import DesignCard from "@/components/DesignCard";
 import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
 import Loading from "@/components/ui/Loading";
+import ShadCnDialog from "@/components/ShadCnDialog";
 
 const dummyData = {
   image_url:
@@ -25,6 +26,7 @@ const DesignPage = () => {
   const [designInput, setDesignInput] = useState({});
   const [dressData, setDressData] = useState<DressData | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   async function handleSubmit() {
     setIsLoading(true);
@@ -32,6 +34,11 @@ const DesignPage = () => {
       method: "POST",
       body: JSON.stringify(designInput),
     });
+    if (!res.ok) {
+      setIsLoading(false);
+      setShowModal(true);
+      return;
+    }
     const data = await res.json();
     setDressData(data.data);
     setIsLoading(false);
@@ -39,6 +46,7 @@ const DesignPage = () => {
 
   return (
     <>
+      {showModal && <ShadCnDialog setShowModal={setShowModal} />}
       <BackgroundGradientAnimation
         firstColor={"54, 20, 46"}
         fifthColor={"156, 36, 104"}
