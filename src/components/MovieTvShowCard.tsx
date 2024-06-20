@@ -121,9 +121,11 @@ const MovieTvShowCard: FC<DescriptiveCardProps> = ({ streamData }) => {
           )}
         </p>
         <div className={"flex flex-row  items-center gap-2 mt-3"}>
-          <span className={"text-[16px] font-bold text-white "}>
-            Watch options:{" "}
-          </span>
+          {streamData && streamData.streamingOptions.in && (
+            <span className={"text-[16px] font-bold text-white "}>
+              Watch options:{" "}
+            </span>
+          )}
           {streamData ? (
             streamData.streamingOptions.in?.map((option, index) => {
               let OTT = <></>;

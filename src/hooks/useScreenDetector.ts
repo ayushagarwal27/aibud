@@ -1,18 +1,23 @@
-"use client";
 import { useEffect, useState } from "react";
 
 export const useScreenDetector = () => {
-  const [width, setWidth] = useState(window.innerWidth);
+  const isWindow = typeof window !== "undefined";
+  const [width, setWidth] = useState(0);
 
   const handleWindowSizeChange = () => {
     setWidth(window.innerWidth);
   };
 
   useEffect(() => {
-    window.addEventListener("resize", handleWindowSizeChange);
+    if (isWindow) {
+      setWidth(window.innerWidth);
+      window.addEventListener("resize", handleWindowSizeChange);
+    }
 
     return () => {
-      window.removeEventListener("resize", handleWindowSizeChange);
+      if (isWindow) {
+        window.removeEventListener("resize", handleWindowSizeChange);
+      }
     };
   }, []);
 

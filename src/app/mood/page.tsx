@@ -83,7 +83,9 @@ export default function Home() {
           }}
         />
         {isLoading && <Loading />}
-        <div className={"grid md:grid-cols-2  gap-4 max-w-[1200px] mx-12"}>
+        <div
+          className={"grid md:grid-cols-2  gap-4 max-w-[1200px] mx-5 sm:mx-12"}
+        >
           {data ? (
             <>
               <MovieTvShow type={"movie"} name={data.movie} />

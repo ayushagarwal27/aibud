@@ -58,7 +58,7 @@ const DesignPage = () => {
         {" "}
         <div
           className={
-            "flex flex-col md:flex-row gap-4 w-full justify-center pt-[60px] mt-[60px]"
+            "flex flex-col  lg:flex-row gap-4 w-full justify-center pt-[60px] mt-[60px]"
           }
         >
           <ShadcnSelect
@@ -70,6 +70,7 @@ const DesignPage = () => {
             onChange={(value) =>
               setDesignInput({ ...designInput, type: value })
             }
+            disabled={isLoading}
           />{" "}
           <ShadcnSelect
             options={designData.inspirations.map((inspiration) => ({
@@ -80,6 +81,7 @@ const DesignPage = () => {
             onChange={(value) =>
               setDesignInput({ ...designInput, inspiration: value })
             }
+            disabled={isLoading}
           />{" "}
           <ShadcnSelect
             options={designData.colors.map((colors) => ({
@@ -90,11 +92,12 @@ const DesignPage = () => {
             onChange={(value) =>
               setDesignInput({ ...designInput, color: value })
             }
+            disabled={isLoading}
           />
           <button
             onClick={handleSubmit}
             disabled={isLoading}
-            className="disabled:opacity-60 disabled:cursor-no-drop relative self-start items-center justify-center inline-block  px-5 py-[12px] overflow-hidden font-medium text-indigo-600 rounded-lg shadow-2xl group"
+            className="disabled:opacity-60 disabled:cursor-no-drop relative self-start items-center justify-center inline-block  px-5 py-[12px] overflow-hidden font-medium text-indigo-600 rounded-lg shadow-2xl group mx-auto lg:mx-0"
           >
             <span className="absolute top-0 left-0 w-40 h-40 -mt-10 -ml-3 transition-all duration-700 bg-red-500 rounded-full blur-md ease" />
             <span className="absolute inset-0 w-full h-full transition duration-700 group-hover:rotate-180 ease">

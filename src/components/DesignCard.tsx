@@ -37,7 +37,7 @@ const DesignCard: FC<CardComponentProps> = ({
         <h3 className="py-1 text-[16px] md:text-[18px] font-bold  text-center capitalize text-white">
           {dressType}
         </h3>
-        <Link href={src} download={src}>
+        <Link href={src} download={src} target={"_blank"}>
           <FaDownload
             size={22}
             className={"text-black bg-white rounded-full p-1"}

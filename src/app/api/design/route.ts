@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse, userAgent } from "next/server";
 import { OpenAI } from "openai";
 import { rateLimit } from "@/app/api/utils";
 
@@ -7,7 +7,8 @@ const ratelimit = rateLimit(1, "24h");
 
 export async function POST(req: NextRequest) {
   // call ratelimit with request ip
-  const ip = req.ip + " design" ?? "ip";
+  const userAgent1 = userAgent(req);
+  const ip = userAgent1.ua + " design" ?? "ip";
 
   const { success, remaining } = await ratelimit.limit(ip);
 

@@ -26,16 +26,16 @@ const MobileNavbar = () => {
             </p>
           </Link>
           <div className="flex lg:hidden">
-            <button
-              aria-label="toggle menu"
-              type="button"
-              onClick={() => setIsOpen(!isOpen)}
-            >
-              <GiHamburgerMenu
-                size={32}
-                className="text-gray-100 hover:text-gray-400 focus:outline-none focus:text-gray-400"
-              />
-            </button>
+            {/*<button*/}
+            {/*  aria-label="toggle menu"*/}
+            {/*  type="button"*/}
+            {/*  onClick={() => setIsOpen(!isOpen)}*/}
+            {/*>*/}
+            {/*  <GiHamburgerMenu*/}
+            {/*    size={32}*/}
+            {/*    className="text-gray-100 hover:text-gray-400 focus:outline-none focus:text-gray-400"*/}
+            {/*  />*/}
+            {/*</button>*/}
           </div>
         </div>
         <div
