@@ -34,3 +34,22 @@ export async function getVideoData(searchTerm: string) {
   // @ts-ignore
   return response?.data.items[0].id.videoId;
 }
+
+export async function getBookData(title: string, author: string) {
+  const books = google.books({
+    version: "v1",
+    auth: process.env.NEXT_PUBLIC_YTB_API_KEY,
+  });
+  const response = await books.volumes.list({
+    q: `intitle:${title}+inauthor:${author}`,
+    langRestrict: "en",
+    printType: "books",
+  });
+
+  return {
+    // @ts-ignore
+    ...response.data.items[0].volumeInfo,
+    // @ts-ignore
+    overview: response.data.items[0].searchInfo.textSnippet,
+  };
+}

@@ -33,7 +33,7 @@ const DesignCard: FC<CardComponentProps> = ({
         </Zoom>
       </div>
 
-      <div className="w-[150px] -mt-3 overflow-hidde flex justify-around items-center py-1 rounded-xl shadow-lg md:w-64 bg-black z-[10]">
+      <div className="w-[150px] -mt-3 overflow-hidde flex justify-around items-center py-1 rounded-xl shadow-lg w-36 md:w-64 bg-black z-[10]">
         <h3 className="py-1 text-[16px] md:text-[18px] font-bold  text-center capitalize text-white">
           {dressType}
         </h3>

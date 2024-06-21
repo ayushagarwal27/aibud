@@ -23,7 +23,10 @@ export async function POST(req: NextRequest) {
         movie: z.string(),
         tvShow: z.string(),
         song: z.string(),
-        novel: z.string(),
+        novel: z.object({
+          title: z.string(),
+          author: z.string(),
+        }),
       }),
     }),
     prompt: `You are an entertainment buff who loves all kind of novels, movies, tv series and songs. 

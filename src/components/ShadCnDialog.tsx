@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, FormEvent, useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -8,12 +8,29 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
+import { FaCheckCircle } from "react-icons/fa";
 
 interface ShadCnDialogProps {
   setShowModal: (val: boolean) => void;
 }
 
 const ShadCnDialog: FC<ShadCnDialogProps> = ({ setShowModal }) => {
+  const [inputVal, setInputVal] = useState("");
+  const [done, setDone] = useState(false);
+  async function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+    if (inputVal == "") return;
+    try {
+      await fetch("/api/register", {
+        method: "POST",
+        body: JSON.stringify({ email: inputVal }),
+      });
+      setDone(true);
+    } catch (err) {
+      console.log("error");
+    }
+  }
+
   return (
     <Dialog open={true} onOpenChange={(val) => setShowModal(val)}>
       <DialogTrigger />
@@ -35,22 +52,36 @@ const ShadCnDialog: FC<ShadCnDialogProps> = ({ setShowModal }) => {
                   please consider providing your email for a reminder. 📧`}
               </p>
             </div>
-            <form onSubmit={() => {}}>
+          </DialogDescription>
+          {done ? (
+            <div
+              className={
+                "flex flex-col border-2 border-pink-600 px-1 py-2 rounded-md items-center"
+              }
+            >
+              <p>Done 🎉</p>
+              <p>We will send an email for the launch date :)</p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit}>
               <Input
                 type="email"
                 placeholder="Email"
+                value={inputVal}
                 className={"mt-6 mb-4 border-2 border-violet-300 bg-gray-700"}
+                onChange={(e) => setInputVal(e.target.value)}
               />
               <button
                 className={
-                  "bg-gradient-to-r from-fuchsia-700 to-rose-700 hover:from-fuchsia-600  hover:to-rose-600  px-4 py-2 rounded-lg text-white"
+                  "disabled:cursor-no-drop bg-gradient-to-r from-fuchsia-700 to-rose-700 hover:from-fuchsia-600  hover:to-rose-600  px-4 py-2 rounded-lg text-white"
                 }
                 type={"submit"}
+                disabled={inputVal == ""}
               >
                 Submit
               </button>
             </form>
-          </DialogDescription>
+          )}
         </DialogHeader>
       </DialogContent>
     </Dialog>

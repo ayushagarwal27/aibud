@@ -10,9 +10,10 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 interface DescriptiveCardProps {
   streamData: StreamDataType | undefined;
+  type: "movie" | "series";
 }
 
-const MovieTvShowCard: FC<DescriptiveCardProps> = ({ streamData }) => {
+const MovieTvShowCard: FC<DescriptiveCardProps> = ({ streamData, type }) => {
   const startFilled = Math.round(streamData ? streamData.rating / 10 : 0);
   const startsEmpty = 10 - startFilled;
   const { isTablet } = useScreenDetector();
@@ -39,7 +40,12 @@ const MovieTvShowCard: FC<DescriptiveCardProps> = ({ streamData }) => {
 
       <div className="w-full lg:w-2/3 p-4 md:p-4">
         {streamData ? (
-          <h1 className="text-xl font-bold text-white">{streamData.title}</h1>
+          <h1 className="text-xl font-bold text-white">
+            {streamData.title}{" "}
+            <span className={"text-accent text-sm text-gray-400"}>
+              ({type})
+            </span>
+          </h1>
         ) : (
           <Skeleton className="w-[100px] h-2" />
         )}

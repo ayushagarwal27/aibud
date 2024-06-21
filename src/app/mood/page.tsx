@@ -7,12 +7,13 @@ import YoutubeVideo from "@/components/mood/YoutubeVideo";
 import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
 import Loading from "@/components/ui/Loading";
 import ShadCnDialog from "@/components/ShadCnDialog";
+import BookCard from "@/components/mood/BookCard";
 
 interface DataType {
   movie: string;
   tvShow: string;
   song: string;
-  novel: string;
+  novel: { title: string; author: string };
 }
 
 export type MoodTypes = "happy" | "sad" | "excited" | "afraid" | "fine";
@@ -91,7 +92,7 @@ export default function Home() {
               <MovieTvShow type={"movie"} name={data.movie} />
               <MovieTvShow type={"series"} name={data.tvShow} />
               <YoutubeVideo searchTerm={data.song} />
-              <p className={"text-white"}>{data.novel}</p>
+              <BookCard novel={data.novel} />
             </>
           ) : (
             ""

@@ -1,8 +1,8 @@
-import { useState, useEffect, FC } from "react";
+import { FC } from "react";
 interface ProgressiveImageProps {
   className?: string;
   placeholderImg: any;
-  src: string;
+  src: any;
   alt: string;
 }
 

@@ -157,7 +157,7 @@ const MovieTvShow: FC<MovieTvShowProps> = ({ type, name }) => {
     getStreamData(name, type).then((data) => setStreamData(data));
   }, []);
 
-  return <MovieTvShowCard streamData={streamData} />;
+  return <MovieTvShowCard streamData={streamData} type={type} />;
 };
 
 export default MovieTvShow;
