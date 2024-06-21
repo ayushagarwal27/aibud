@@ -28,12 +28,12 @@ const DesignCard: FC<CardComponentProps> = ({
             placeholderImg={placeholderImg}
             src={src}
             alt={alt}
-            className={"h-full w-full"}
+            className={"h-full w-full hover:opacity-90"}
           />
         </Zoom>
       </div>
 
-      <div className="w-[150px] -mt-3 overflow-hidde flex justify-around items-center py-1 rounded-xl shadow-lg w-36 md:w-64 bg-black z-[10]">
+      <div className="-mt-3 overflow-hidde flex justify-around items-center py-1 rounded-xl shadow-lg w-36 md:w-64 bg-black z-[10]">
         <h3 className="py-1 text-[16px] md:text-[18px] font-bold  text-center capitalize text-white">
           {dressType}
         </h3>

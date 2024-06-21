@@ -6,6 +6,7 @@ import DesignCard from "@/components/DesignCard";
 import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
 import Loading from "@/components/ui/Loading";
 import ShadCnDialog from "@/components/ShadCnDialog";
+import CircularProgress from "@/components/CircularProgress";
 
 const dummyData = {
   image_url:
@@ -107,7 +108,15 @@ const DesignPage = () => {
             <span className="relative text-white text-[16px]">Submit</span>
           </button>
         </div>
-        {isLoading && <Loading />}
+        {isLoading && (
+          <div
+            className={
+              "flex flex-col w-ful mt-16 md:mt-52 justify-center items-center"
+            }
+          >
+            <CircularProgress />
+          </div>
+        )}
         {dressData && (
           <DesignCard
             src={dressData.image_url}
