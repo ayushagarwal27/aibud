@@ -96,7 +96,7 @@ const DesignPage = () => {
           />
           <button
             onClick={handleSubmit}
-            disabled={isLoading}
+            disabled={isLoading || Object.entries(designInput).length < 3}
             className="disabled:opacity-60 disabled:cursor-no-drop relative self-start items-center justify-center inline-block  px-5 py-[12px] overflow-hidden font-medium text-indigo-600 rounded-lg shadow-2xl group mx-auto lg:mx-0"
           >
             <span className="absolute top-0 left-0 w-40 h-40 -mt-10 -ml-3 transition-all duration-700 bg-red-500 rounded-full blur-md ease" />

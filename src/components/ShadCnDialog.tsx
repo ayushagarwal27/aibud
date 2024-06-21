@@ -17,9 +17,11 @@ interface ShadCnDialogProps {
 const ShadCnDialog: FC<ShadCnDialogProps> = ({ setShowModal }) => {
   const [inputVal, setInputVal] = useState("");
   const [done, setDone] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    if (inputVal == "") return;
+    if (inputVal == "" || isLoading) return;
+    setIsLoading(true);
     try {
       await fetch("/api/register", {
         method: "POST",
@@ -28,6 +30,8 @@ const ShadCnDialog: FC<ShadCnDialogProps> = ({ setShowModal }) => {
       setDone(true);
     } catch (err) {
       console.log("error");
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -76,9 +80,9 @@ const ShadCnDialog: FC<ShadCnDialogProps> = ({ setShowModal }) => {
                   "disabled:cursor-no-drop bg-gradient-to-r from-fuchsia-700 to-rose-700 hover:from-fuchsia-600  hover:to-rose-600  px-4 py-2 rounded-lg text-white"
                 }
                 type={"submit"}
-                disabled={inputVal == ""}
+                disabled={inputVal == "" || isLoading}
               >
-                Submit
+                {isLoading ? "Submitting..." : "Submit"}
               </button>
             </form>
           )}

@@ -15,9 +15,9 @@ export async function POST(req: NextRequest) {
   const { success, remaining } = await ratelimit.limit(ip);
 
   // block the request if unsuccessfull
-  // if (!success) {
-  //   return new NextResponse("Limit Exceeded", { status: 429 });
-  // }
+  if (!success) {
+    return new NextResponse("Limit Exceeded", { status: 429 });
+  }
 
   const { inspiration, type, color = "violet" } = await req.json();
 
