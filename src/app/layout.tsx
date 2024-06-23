@@ -8,8 +8,10 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Ai buddy for your entertainment and design needs",
-  description: "A user friendly ai app for you.",
+  title:
+    "Explore Your Mood, Create Your Style: AiBud - Where Entertainment Meets Fashion!",
+  description:
+    "Select your mood for curated movie, TV, novel, and song recommendations. Design your dream dress with AI-generated images based on your style and color choices. Explore, create, and enjoy—it's all just a click away! ",
 };
 
 export default function RootLayout({
