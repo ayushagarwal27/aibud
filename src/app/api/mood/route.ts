@@ -2,15 +2,22 @@
 import { openai } from "@ai-sdk/openai";
 import { generateObject } from "ai";
 import { z } from "zod";
-import { NextRequest, NextResponse, userAgent } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { rateLimit } from "@/app/api/utils";
 
 const ratelimit = rateLimit(2, "24h");
 
+const moodSchema = z.object({ mood: z.string() });
+
 export async function POST(req: NextRequest) {
-  const { mood } = await req.json();
-  const userAgent1 = userAgent(req);
-  const ip = userAgent1.ua + " design" ?? "ip";
+  const body = await req.json();
+  const response = moodSchema.safeParse(body);
+  if (!response.success) {
+    return NextResponse.json("Something went wrong!", { status: 411 });
+  }
+  const mood = response.data.mood;
+
+  const ip = req.headers.get("x-forwarded-for") + " mood";
   const { success, remaining } = await ratelimit.limit(ip);
   if (!success) {
     return NextResponse.json("Limit Exceeded", { status: 429 });

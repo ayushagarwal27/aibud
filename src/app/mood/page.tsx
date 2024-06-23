@@ -8,6 +8,7 @@ import { BackgroundGradientAnimation } from "@/components/ui/background-gradient
 import Loading from "@/components/ui/Loading";
 import ShadCnDialog from "@/components/ShadCnDialog";
 import BookCard from "@/components/mood/BookCard";
+import { handleError } from "@/lib/utils";
 
 interface DataType {
   movie: string;
@@ -57,6 +58,8 @@ export default function Home() {
         .catch((err) => {
           if (err.message.replaceAll(`"`, "") === "Limit Exceeded") {
             setShowModal(true);
+          } else {
+            handleError();
           }
         });
     }
@@ -76,7 +79,7 @@ export default function Home() {
         className={"min-h-svh"}
         containerClassName={"fixed pointer-events-none -z-10 inset-0"}
       />
-      <div className={"flex flex-col items-center mb-[60px] mt-[40px]"}>
+      <div className={"flex flex-col items-center mb-[100px] mt-[40px]"}>
         <MoodSelect
           handleMoodSelect={(val) => {
             setData(null);

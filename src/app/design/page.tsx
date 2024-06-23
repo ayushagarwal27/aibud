@@ -4,13 +4,13 @@ import ShadcnSelect from "@/components/ShadcnSelect";
 import * as designData from "./designData";
 import DesignCard from "@/components/DesignCard";
 import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
-import Loading from "@/components/ui/Loading";
 import ShadCnDialog from "@/components/ShadCnDialog";
 import CircularProgress from "@/components/CircularProgress";
+import { handleError } from "@/lib/utils";
 
 const dummyData = {
   image_url:
-    "https://oaidalleapiprodscus.blob.core.windows.net/private/org-ejWcgJVk0c4njm99EH1aZITJ/user-2wzuSeC1BwlDasyFA1x6aNWg/img-e2mnr6StpOkZ19kUR0BtUXeA.png?st=2024-06-17T16%3A51%3A29Z&se=2024-06-17T18%3A51%3A29Z&sp=r&sv=2023-11-03&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2024-06-17T16%3A05%3A27Z&ske=2024-06-18T16%3A05%3A27Z&sks=b&skv=2023-11-03&sig=DP7ZcjEzgl/GYR/2yKcfGj324V0RW3YNYwlm7xPRQ%2Bg%3D",
+    "https://plus.unsplash.com/premium_photo-1690217748547-5a9141cb9763?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   inspiration: "Arablic",
   color: "Green",
   type: "Cocktail dress",
@@ -37,7 +37,13 @@ const DesignPage = () => {
     });
     if (!res.ok) {
       setIsLoading(false);
-      setShowModal(true);
+      await res.text().then((text) => {
+        if (text.replaceAll(`"`, "") === "Limit Exceeded") {
+          setShowModal(true);
+        } else {
+          handleError();
+        }
+      });
       return;
     }
     const data = await res.json();
@@ -55,7 +61,7 @@ const DesignPage = () => {
         className={"min-h-svh"}
         containerClassName={"fixed pointer-events-none -z-10 inset-0"}
       />
-      <div className={"flex flex-col gap-4"}>
+      <div className={"flex flex-col gap-4 mb-[100px]"}>
         {" "}
         <div
           className={

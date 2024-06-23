@@ -105,7 +105,7 @@ const BookCard: FC<BookCardProps> = ({ novel }) => {
         <p className={"text-accent text-[16px] mt-2 flex items-center gap-2"}>
           <span className={"text-[16px] font-bold text-white "}>Author:</span>
           {bookData ? (
-            bookData.authors.map((author, index) => (
+            bookData.authors?.map((author, index) => (
               <span key={author} className={"ml-1 capitalize"}>
                 {author}
                 {index !== bookData.authors.length - 1 ? "," : ""}

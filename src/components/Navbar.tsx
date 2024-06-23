@@ -46,30 +46,29 @@ function Navbar({ className }: { className?: string }) {
             Bud
           </p>
         </Link>
-        {!isHome && (
-          <>
-            <Link href={"/design"} className={"text-white hover:text-gray-400"}>
-              <MenuItem setActive={setActive} active={active} item="👗 Design">
-                <p className={"w-[380px]"}>
-                  Choose from variety of dresses, inspiration and color.
-                </p>
-              </MenuItem>
-            </Link>{" "}
-            <span className={"text-white"}>/</span>
-            <Link href={"/mood"} className={"text-white hover:text-gray-400"}>
-              <MenuItem
-                setActive={setActive}
-                active={active}
-                item="🍿 Mood Recommendation"
-              >
-                <p className={"w-[380px]"}>
-                  Get Movie, Tv Series, Song and Novel recommendation based on
-                  your mood
-                </p>
-              </MenuItem>
-            </Link>
-          </>
-        )}
+
+        <>
+          <Link href={"/design"} className={"text-white hover:text-gray-400"}>
+            <MenuItem setActive={setActive} active={active} item="👗 Design">
+              <p className={"w-[380px]"}>
+                Choose from variety of dresses, inspiration and color.
+              </p>
+            </MenuItem>
+          </Link>{" "}
+          <span className={"text-white"}>/</span>
+          <Link href={"/mood"} className={"text-white hover:text-gray-400"}>
+            <MenuItem
+              setActive={setActive}
+              active={active}
+              item="🍿 Mood Recommendation"
+            >
+              <p className={"w-[380px]"}>
+                Get Movie, Tv Series, Song and Novel recommendation based on
+                your mood
+              </p>
+            </MenuItem>
+          </Link>
+        </>
       </Menu>
     </div>
   );

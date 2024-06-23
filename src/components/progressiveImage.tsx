@@ -1,7 +1,7 @@
 import { FC } from "react";
 interface ProgressiveImageProps {
   className?: string;
-  placeholderImg: any;
+  placeholderImg?: any;
   src: any;
   alt: string;
 }

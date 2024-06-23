@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { NavbarComponent } from "@/components/Navbar";
+import { Toaster } from "react-hot-toast";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,8 +20,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className + " bg-black"}>
+        <Toaster position="bottom-center" />
         <NavbarComponent />
         {children}
+        <Footer />
       </body>
     </html>
   );

@@ -45,7 +45,8 @@ const ShadCnDialog: FC<ShadCnDialogProps> = ({ setShowModal }) => {
             {/* eslint-disable-next-line react/no-unescaped-entities */}
             <div className={"flex flex-col gap-2 mt-4"}>
               <p className={"leading-loosed"}>
-                Thank you for trying out the initial version of the{" "}
+                Daily quota exceeded; thanks for trying out the initial version
+                of the{" "}
                 <span className={"text-pink-600 font-bold "}>Ai Bud</span> 🌟
               </p>
               <p>

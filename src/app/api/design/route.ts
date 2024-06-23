@@ -1,16 +1,32 @@
-import { NextRequest, NextResponse, userAgent } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { OpenAI } from "openai";
 import { rateLimit } from "@/app/api/utils";
+import { z } from "zod";
 
 export const maxDuration = 40;
 
 // Create Rate limit
 const ratelimit = rateLimit(1, "24h");
 
+const designSchema = z.object({
+  inspiration: z.string(),
+  type: z.string(),
+  color: z.string(),
+});
+
 export async function POST(req: NextRequest) {
+  const body = await req.json();
+  const parsedBody = designSchema.safeParse(body);
+
+  if (!parsedBody.success) {
+    return NextResponse.json("Something went wrong!", { status: 411 });
+  }
+
+  const { inspiration, type, color = "violet" } = parsedBody.data;
+
   // call ratelimit with request ip
-  const userAgent1 = userAgent(req);
-  const ip = userAgent1.ua + " design" ?? "ip";
+
+  const ip = req.headers.get("x-forwarded-for") + " design";
 
   const { success, remaining } = await ratelimit.limit(ip);
 
@@ -18,8 +34,6 @@ export async function POST(req: NextRequest) {
   if (!success) {
     return new NextResponse("Limit Exceeded", { status: 429 });
   }
-
-  const { inspiration, type, color = "violet" } = await req.json();
 
   const response = await new OpenAI().images.generate({
     model: "dall-e-3",

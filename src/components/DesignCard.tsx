@@ -22,7 +22,7 @@ const DesignCard: FC<CardComponentProps> = ({
 }) => {
   return (
     <div className="flex flex-col items-center justify-center w-[80%] max-w-md mx-auto">
-      <div className="w-full h-[70%]  bg-gray-300 bg-center bg-cover rounded shadow-md overflow-hidden">
+      <div className="w-full h-[70%] bg-gray-300 bg-center bg-cover rounded shadow-md overflow-hidden">
         <Zoom>
           <ProgressiveImage
             placeholderImg={placeholderImg}
