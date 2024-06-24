@@ -65,7 +65,7 @@ const DesignPage = () => {
         {" "}
         <div
           className={
-            "flex flex-col  lg:flex-row gap-4 w-full justify-center pt-[60px] mt-[60px]"
+            "flex flex-col  lg:flex-row gap-4 w-full justify-center pt-[60px] mt-[50px]"
           }
         >
           <ShadcnSelect
