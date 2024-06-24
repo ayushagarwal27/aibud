@@ -21,7 +21,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className + " bg-black"}>
+      <body
+        className={
+          inter.className +
+          " bg-gradient-to-r from-[#e9d5ff] via-[#d8b4fe] to-[#c084fc]"
+        }
+      >
         <Toaster position="bottom-center" />
         <NavbarComponent />
         {children}

@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Link from "next/link";
@@ -6,7 +8,7 @@ import { cn } from "@/lib/utils";
 const MobileNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className="fixed inset-x-0 top-0  shadow bg-black z-[100]">
+    <nav className="md:hidden fixed inset-x-0 top-0  shadow bg-black z-[100]">
       <div className="container px-6 py-2 mx-auto md:flex">
         <div className="flex items-center justify-between ">
           <Link

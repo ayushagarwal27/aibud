@@ -12,7 +12,6 @@ const CircularProgress = () => {
     return () => clearInterval(interval);
   }, []);
 
-  console.log(value);
   return (
     <div className="relative w-40 h-40">
       <svg className="w-full h-full" viewBox="0 0 100 100">

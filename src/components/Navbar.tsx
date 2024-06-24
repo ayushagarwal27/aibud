@@ -1,31 +1,21 @@
-"use client";
-import React, { useState } from "react";
-import { Menu, MenuItem } from "@/components/ui/navbar-menu";
+import React from "react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useScreenDetector } from "@/hooks/useScreenDetector";
+
 import MobileNavbar from "@/components/MobileNavbar";
 
 export function NavbarComponent() {
-  const { isMobile } = useScreenDetector();
-
-  if (isMobile) {
-    return <MobileNavbar />;
-  }
-
   return (
-    <div className="relative w-full flex items-center justify-center">
-      <Navbar className="top-4" />
-    </div>
+    <>
+      <MobileNavbar />;
+      <div className="hidden md:flex relative w-full items-center justify-center">
+        <Navbar className="top-4" />
+      </div>
+    </>
   );
 }
 
 function Navbar({ className }: { className?: string }) {
-  const [active, setActive] = useState<string | null>(null);
-
-  const pathname = usePathname();
-  const isHome = pathname === "/";
   return (
     <div
       className={cn(
@@ -33,7 +23,7 @@ function Navbar({ className }: { className?: string }) {
         className
       )}
     >
-      <Menu setActive={setActive}>
+      <div className="relative rounded-full boder bg-black border-white/[0.2]  shadow-input flex justify-center space-x-4 p-4 ">
         <Link href={"/"} className={"mr-6"}>
           <p className={"text-white font-bold text-xl"}>
             <span
@@ -49,27 +39,14 @@ function Navbar({ className }: { className?: string }) {
 
         <>
           <Link href={"/design"} className={"text-white hover:text-gray-400"}>
-            <MenuItem setActive={setActive} active={active} item="👗 Design">
-              <p className={"w-[380px]"}>
-                Choose from variety of dresses, inspiration and color.
-              </p>
-            </MenuItem>
+            👗 Design
           </Link>{" "}
           <span className={"text-white"}>/</span>
           <Link href={"/mood"} className={"text-white hover:text-gray-400"}>
-            <MenuItem
-              setActive={setActive}
-              active={active}
-              item="🍿 Mood Recommendation"
-            >
-              <p className={"w-[380px]"}>
-                Get Movie, Tv Series, Song and Novel recommendation based on
-                your mood
-              </p>
-            </MenuItem>
+            🍿 Mood Recommendation
           </Link>
         </>
-      </Menu>
+      </div>
     </div>
   );
 }

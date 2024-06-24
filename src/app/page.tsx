@@ -5,8 +5,8 @@ import { FaRegCircleCheck } from "react-icons/fa6";
 
 const HomePage = () => {
   return (
-    <header className="bg-gradient-to-r from-[#e9d5ff] via-[#d8b4fe] to-[#c084fc] w-screen min-h-svh flex flex-col justify-center items-center">
-      <div className="container px-6 pb-16 mx-auto">
+    <header className="w-full min-h-svh flex flex-col justify-center items-center">
+      <div className="container md:max-w-screen-[1200px] px-6 pb-16 mx-auto">
         <div className="items-center lg:flex">
           <div className="w-full lg:w-1/2">
             <div className="lg:max-w-lg">
