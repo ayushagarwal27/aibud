@@ -2,7 +2,11 @@
 import { google } from "googleapis";
 import { countryList } from "@/data";
 
-export async function getStreamData(name: string, type: string) {
+export async function getStreamData(
+  name: string,
+  type: string,
+  countryCode: string
+) {
   const options = {
     method: "GET",
     headers: {
@@ -12,11 +16,6 @@ export async function getStreamData(name: string, type: string) {
   };
 
   try {
-    const geoResponse = await fetch(
-      "https://ipinfo.io?token=" + process.env.NEXT_IP_INFO_API_KEY
-    );
-    const geoData = await geoResponse.json();
-    let countryCode = geoData?.country?.toLowerCase();
     if (!countryList.includes(countryCode)) {
       countryCode = "us";
     }
