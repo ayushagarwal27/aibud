@@ -47,6 +47,7 @@ const MovieTvShow: FC<MovieTvShowProps> = ({ type, name }) => {
         );
         const geoData = await geoResponse.json();
         let countryCode = geoData?.country?.toLowerCase();
+        console.log(countryCode, geoData, "cc");
         const data = await getStreamData(name, type, countryCode);
         setStreamData(data);
       } catch (err) {
