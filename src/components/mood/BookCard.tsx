@@ -5,6 +5,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import Link from "next/link";
 import { RiGooglePlayFill } from "react-icons/ri";
 import bookImg from "../../assets/images/book.jpg";
+import { handleError } from "@/lib/utils";
 
 interface BookCardProps {
   novel: { title: string; author: string };
@@ -21,8 +22,10 @@ interface BookData {
 const BookCard: FC<BookCardProps> = ({ novel }) => {
   const [bookData, setBookData] = useState<BookData | null>(null);
   useEffect(() => {
-    // @ts-ignore
-    getBookData(novel.title, novel.author).then((data) => setBookData(data));
+    getBookData(novel.title, novel.author)
+      // @ts-ignore
+      .then((data) => setBookData(data))
+      .catch((err) => handleError());
   }, []);
 
   return (

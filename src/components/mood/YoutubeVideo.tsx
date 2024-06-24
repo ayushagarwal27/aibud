@@ -2,6 +2,7 @@ import React, { FC, useEffect, useState } from "react";
 import { BackgroundGradient } from "@/components/ui/background-gradient";
 import { getVideoData } from "@/app/api/actions";
 import { Skeleton } from "@/components/ui/skeleton";
+import { handleError } from "@/lib/utils";
 
 interface YoutubeVideoProps {
   searchTerm: string;
@@ -11,7 +12,9 @@ const YoutubeVideo: FC<YoutubeVideoProps> = ({ searchTerm }) => {
   const [ytbId, setYtbId] = useState<string | undefined | null>();
 
   useEffect(() => {
-    getVideoData(searchTerm).then((data) => setYtbId(data));
+    getVideoData(searchTerm)
+      .then((data) => setYtbId(data))
+      .catch((err) => handleError());
   }, []);
 
   return (

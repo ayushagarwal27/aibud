@@ -3,6 +3,7 @@
 import React, { FC, useEffect, useState } from "react";
 import { getStreamData } from "@/app/api/actions";
 import MovieTvShowCard from "@/components/MovieTvShowCard";
+import { handleError } from "@/lib/utils";
 
 interface MovieTvShowProps {
   type: "movie" | "series";
@@ -24,7 +25,7 @@ export interface StreamDataType {
   overview: string;
   genres: { id: string; name: string }[];
   streamingOptions: {
-    in: {
+    [key: string]: {
       service: {
         id: string;
         name: string;
@@ -32,6 +33,7 @@ export interface StreamDataType {
       link: string;
     }[];
   };
+  countryCode: string;
 }
 
 const dummyData = {
@@ -154,7 +156,9 @@ const MovieTvShow: FC<MovieTvShowProps> = ({ type, name }) => {
   const [streamData, setStreamData] = useState<StreamDataType | undefined>();
 
   useEffect(() => {
-    getStreamData(name, type).then((data) => setStreamData(data));
+    getStreamData(name, type)
+      .then((data) => setStreamData(data))
+      .catch((err) => handleError());
   }, []);
 
   return <MovieTvShowCard streamData={streamData} type={type} />;

@@ -40,13 +40,20 @@ const ShadCnDialog: FC<ShadCnDialogProps> = ({ setShowModal }) => {
       <DialogTrigger />
       <DialogContent className={"bg-black text-white"}>
         <DialogHeader>
-          <DialogTitle> Hey there 🙂</DialogTitle>
+          <DialogTitle className={"text-xl"}> Hey there 🙂</DialogTitle>
           <DialogDescription className={"text-gray-100"}>
             {/* eslint-disable-next-line react/no-unescaped-entities */}
-            <div className={"flex flex-col gap-2 mt-4"}>
-              <p className={"leading-loosed"}>
-                Daily quota exceeded; thanks for trying out the initial version
-                of the{" "}
+            <div
+              className={
+                "flex flex-col gap-2 mt-4 text-[20px] leading-6 font-sans"
+              }
+            >
+              <p className={"leading-loosed "}>
+                <span className={"font-semibold italic"}>
+                  {" "}
+                  Daily quota exceeded;
+                </span>{" "}
+                thanks for trying out the initial version of the{" "}
                 <span className={"text-pink-600 font-bold "}>Ai Bud</span> 🌟
               </p>
               <p>

@@ -127,55 +127,58 @@ const MovieTvShowCard: FC<DescriptiveCardProps> = ({ streamData, type }) => {
           )}
         </p>
         <div className={"flex flex-row  items-center gap-2 mt-3"}>
-          {streamData && streamData.streamingOptions.in && (
-            <span className={"text-[16px] font-bold text-white "}>
-              Watch options:{" "}
-            </span>
-          )}
+          {streamData &&
+            streamData.streamingOptions[streamData.countryCode] && (
+              <span className={"text-[16px] font-bold text-white "}>
+                Watch options:{" "}
+              </span>
+            )}
           {streamData ? (
-            streamData.streamingOptions.in?.map((option, index) => {
-              let OTT = <></>;
+            streamData.streamingOptions[streamData.countryCode]?.map(
+              (option, index) => {
+                let OTT = <></>;
 
-              if (option.service.id === "netflix") {
-                OTT = (
-                  <RiNetflixFill
-                    className={
-                      "text-red-600 cursor-pointer hover:text-gray-500"
-                    }
-                    key={option.service.id}
-                    size={28}
-                  />
-                );
-              } else if (option.service.id === "prime") {
-                OTT = (
-                  <SiPrime
-                    className={
-                      "text-blue-400 cursor-pointer hover:text-gray-500"
-                    }
-                    size={38}
-                  />
-                );
-              } else if (option.service.id === "apple") {
-                OTT = (
-                  <SiAppletv
-                    className={
-                      "bg-white text-black p-[2px] rounded-xl cursor-pointer hover:text-gray-500"
-                    }
-                    size={28}
-                    key={option.service.id}
-                  />
+                if (option.service.id === "netflix") {
+                  OTT = (
+                    <RiNetflixFill
+                      className={
+                        "text-red-600 cursor-pointer hover:text-gray-500"
+                      }
+                      key={option.service.id}
+                      size={28}
+                    />
+                  );
+                } else if (option.service.id === "prime") {
+                  OTT = (
+                    <SiPrime
+                      className={
+                        "text-blue-400 cursor-pointer hover:text-gray-500"
+                      }
+                      size={38}
+                    />
+                  );
+                } else if (option.service.id === "apple") {
+                  OTT = (
+                    <SiAppletv
+                      className={
+                        "bg-white text-black p-[2px] rounded-xl cursor-pointer hover:text-gray-500"
+                      }
+                      size={28}
+                      key={option.service.id}
+                    />
+                  );
+                }
+                return (
+                  <Link
+                    key={option.service.id + index}
+                    href={option.link}
+                    target={"_blank"}
+                  >
+                    {OTT}
+                  </Link>
                 );
               }
-              return (
-                <Link
-                  key={option.service.id + index}
-                  href={option.link}
-                  target={"_blank"}
-                >
-                  {OTT}
-                </Link>
-              );
-            })
+            )
           ) : (
             <div className={"flex gap-2"}>
               <Skeleton className={"w-[50px] h-2 bg-red-600"} />
