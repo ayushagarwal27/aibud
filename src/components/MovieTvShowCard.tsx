@@ -110,7 +110,11 @@ const MovieTvShowCard: FC<DescriptiveCardProps> = ({ streamData, type }) => {
           )}
         </div>
 
-        <p className={"text-accent text-[16px] mt-2 flex items-center gap-2"}>
+        <p
+          className={
+            "text-accent text-[16px] mt-2 flex flex-wrap items-center gap-2"
+          }
+        >
           <span className={"text-[16px] font-bold text-white "}>Genre:</span>
           {streamData ? (
             streamData.genres.map((genre, index) => (
@@ -126,7 +130,7 @@ const MovieTvShowCard: FC<DescriptiveCardProps> = ({ streamData, type }) => {
             </div>
           )}
         </p>
-        <div className={"flex flex-row  items-center gap-2 mt-3"}>
+        <div className={"flex flex-row flex-wrap items-center gap-2 mt-3"}>
           {streamData &&
             streamData.streamingOptions[streamData.countryCode] && (
               <span className={"text-[16px] font-bold text-white "}>
