@@ -62,7 +62,7 @@ const HomePage = () => {
                 <span className="size-2 bg-gray-600 rounded-full dark:bg-neutral-600"></span>
               </div>
               <div className="flex justify-center items-center size-full bg-gray-700 text-[.25rem] text-gray-400 rounded-sm sm:text-[.5rem] dark:bg-neutral-600 dark:text-neutral-400">
-                www.aibud.in/design
+                www.aibud.in/mood
               </div>
             </div>
 
