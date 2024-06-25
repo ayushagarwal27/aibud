@@ -50,20 +50,10 @@ const colors = [
 ];
 
 const itemsTypes = [
-  "Saree",
-  "Lehenga Choli",
-  "Anarkali Suit",
   "Maxi Dress",
   "Cocktail Dress",
-  "Salwar Kameez",
-  "Patiala Suit",
-  "Churidar Suit",
   "Wrap Dress",
   "Shift Dress",
-  "Sharara",
-  "Gharara",
-  "Palazzo Suit",
-  "Punjabi Suit",
   "A-line Dress",
   "Ball Gown",
   "Peplum Dress",
@@ -106,6 +96,16 @@ const itemsTypes = [
   "Belted Dress",
   "Peasant Dress",
   "Gingham Dress",
+  "Saree",
+  "Lehenga Choli",
+  "Anarkali Suit",
+  "Salwar Kameez",
+  "Patiala Suit",
+  "Churidar Suit",
+  "Sharara",
+  "Gharara",
+  "Palazzo Suit",
+  "Punjabi Suit",
 ];
 
 const inspirations = [
