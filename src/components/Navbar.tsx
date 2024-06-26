@@ -7,7 +7,7 @@ import MobileNavbar from "@/components/MobileNavbar";
 export function NavbarComponent() {
   return (
     <>
-      <MobileNavbar />;
+      <MobileNavbar />
       <div className="hidden md:flex relative w-full items-center justify-center">
         <Navbar className="top-4" />
       </div>
