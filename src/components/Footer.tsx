@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
-import { FaLinkedin } from "react-icons/fa";
+// import { FaLinkedin } from "react-icons/fa";
+import { FaSquareXTwitter } from "react-icons/fa6";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -80,31 +81,31 @@ const Footer = () => {
         </Link>
       </p>
       <div className="flex gap-4 items-center">
-        <SocialLink
-          href="https://twitter.com/ayushagarwal027"
-          icon={XIcon}
-          isHome={isHome}
-        >
-          Follow me on X
-        </SocialLink>
+        {/*<SocialLink*/}
+        {/*  href="https://twitter.com/ayushagarwal027"*/}
+        {/*  icon={XIcon}*/}
+        {/*  isHome={isHome}*/}
+        {/*>*/}
+        {/*  Follow me on X*/}
+        {/*</SocialLink>*/}
         <Link
-          href={"https://www.linkedin.com/in/ayush-agarwal-145a20166/"}
+          href={"https://twitter.com/ayushagarwal027"}
           rel="noreferrer"
           className={"cursor-pointer"}
           target={"_blank"}
         >
-          <FaLinkedin
-            size={22}
+          <FaSquareXTwitter
+            size={26}
             className={"hover:text-blue-600" + " " + iconColorVal}
           />
         </Link>
-        <SocialLink
-          href="https://github.com/ayushagarwal27"
-          icon={GitHubIcon}
-          isHome={isHome}
-        >
-          Follow me on X
-        </SocialLink>
+        {/*<SocialLink*/}
+        {/*  href="https://github.com/ayushagarwal27"*/}
+        {/*  icon={GitHubIcon}*/}
+        {/*  isHome={isHome}*/}
+        {/*>*/}
+        {/*  Follow me on X*/}
+        {/*</SocialLink>*/}
       </div>
     </div>
   );
