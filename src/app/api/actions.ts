@@ -65,7 +65,7 @@ export async function getBookData(title: string, author: string) {
       // @ts-ignore
       ...response.data.items[0].volumeInfo,
       // @ts-ignore
-      overview: response.data.items[0].searchInfo.textSnippet,
+      overview: response.data.items[0].volumeInfo.description,
     };
   } catch (err) {
     throw new Error("Something went wrong");

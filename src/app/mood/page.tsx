@@ -79,7 +79,7 @@ export default function Home() {
         className={"min-h-svh"}
         containerClassName={"fixed pointer-events-none -z-10 inset-0"}
       />
-      <div className={"flex flex-col items-center mb-[100px] mt-[20px]"}>
+      <div className={"flex flex-col items-center mb-[100px] mt-[30px]"}>
         <MoodSelect
           handleMoodSelect={(val) => {
             setData(null);

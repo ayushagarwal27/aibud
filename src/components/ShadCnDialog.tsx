@@ -8,7 +8,6 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { FaCheckCircle } from "react-icons/fa";
 
 interface ShadCnDialogProps {
   setShowModal: (val: boolean) => void;
@@ -53,14 +52,14 @@ const ShadCnDialog: FC<ShadCnDialogProps> = ({ setShowModal }) => {
                   {" "}
                   Daily quota exceeded;
                 </span>{" "}
-                thanks for trying out the initial version of the{" "}
+                thanks for trying out the initial version of{" "}
                 <span className={"text-pink-600 font-bold "}>Ai Bud</span> 🌟
               </p>
               <p>
                 This app will soon be released with many exciting features. 🚀
               </p>
               <p className={"leading-1"}>
-                {`If you'd like to receive an update when this app launches,
+                {`If you'd like to receive an update when we add more features, 
                   please consider providing your email for a reminder. 📧`}
               </p>
             </div>

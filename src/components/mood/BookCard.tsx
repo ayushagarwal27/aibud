@@ -36,7 +36,7 @@ const BookCard: FC<BookCardProps> = ({ novel }) => {
             placeholderImg={
               "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
             }
-            src={bookData.imageLinks.thumbnail || bookImg}
+            src={bookData?.imageLinks?.thumbnail || bookImg}
             alt={bookData.title}
             className={"w-full h-full object-cover"}
           />

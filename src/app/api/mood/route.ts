@@ -20,9 +20,9 @@ export async function POST(req: NextRequest) {
 
     const ip = req.headers.get("x-forwarded-for") + " mood";
     const { success, remaining } = await ratelimit.limit(ip);
-    if (!success) {
-      return NextResponse.json("Limit Exceeded", { status: 429 });
-    }
+    // if (!success) {
+    //   return NextResponse.json("Limit Exceeded", { status: 429 });
+    // }
 
     const { object } = await generateObject({
       model: openai("gpt-4o"),
