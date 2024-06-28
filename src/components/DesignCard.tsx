@@ -28,7 +28,7 @@ const DesignCard: FC<CardComponentProps> = ({
             placeholderImg={placeholderImg}
             src={src}
             alt={alt}
-            className={"h-full w-full hover:opacity-90"}
+            className={"h-full w-full hover:opacity-45"}
           />
         </Zoom>
       </div>
