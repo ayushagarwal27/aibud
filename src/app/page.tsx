@@ -19,7 +19,7 @@ const HomePage = () => {
       {/*  </a>*/}
       {/*</div>*/}
       <div className="container md:max-w-screen-[1200px] px-6 pb-16 mx-auto">
-        <div className="items-center lg:flex">
+        <div className="items-center lg:gap-4 lg:flex">
           <div className="w-full lg:w-1/2">
             <div className="lg:max-w-lg">
               <Heading />
