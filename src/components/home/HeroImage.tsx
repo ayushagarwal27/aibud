@@ -15,7 +15,7 @@ const HeroImage = () => {
         scale: 0,
         opacity: 0,
         duration: 1,
-        delay: 0.5,
+        delay: 0.6,
       }); // <-- automatically reverted
     },
     { dependencies: [] }
