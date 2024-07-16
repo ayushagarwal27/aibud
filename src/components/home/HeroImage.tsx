@@ -1,10 +1,31 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import heroImage from "@/assets/images/hero-image.png";
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const HeroImage = () => {
+  const imageRef = useRef(null);
+  useGSAP(
+    () => {
+      gsap.from(imageRef.current, {
+        scale: 0,
+        opacity: 0,
+        duration: 1,
+        delay: 0.5,
+      }); // <-- automatically reverted
+    },
+    { dependencies: [] }
+  );
+
   return (
-    <figure className="mt-6 ml-4 md:mt-none ms-auto relative z-[1] max-w-[88%] mx-auto md:max-w-lg w-[50rem] h-auto rounded-b-lg shadow-[0_2.75rem_3.5rem_-2rem_rgb(45_55_75_/_20%),_0_0_5rem_-2rem_rgb(45_55_75_/_15%)] dark:shadow-[0_2.75rem_3.5rem_-2rem_rgb(0_0_0_/_20%),_0_0_5rem_-2rem_rgb(0_0_0_/_15%)]">
+    <figure
+      ref={imageRef}
+      className="mt-6 ml-4 md:mt-none ms-auto relative z-[1] max-w-[88%] mx-auto md:max-w-lg w-[50rem] h-auto rounded-b-lg shadow-[0_2.75rem_3.5rem_-2rem_rgb(45_55_75_/_20%),_0_0_5rem_-2rem_rgb(45_55_75_/_15%)] dark:shadow-[0_2.75rem_3.5rem_-2rem_rgb(0_0_0_/_20%),_0_0_5rem_-2rem_rgb(0_0_0_/_15%)]"
+    >
       <div className="relative flex items-center max-w-[50rem] bg-gray-800 rounded-t-lg py-2 px-24 dark:bg-neutral-700">
         <div className="flex space-x-1 absolute top-2/4 start-4 -translate-y-1">
           <span className="size-2 bg-gray-600 rounded-full dark:bg-neutral-600"></span>

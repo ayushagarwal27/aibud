@@ -1,8 +1,21 @@
+"use client";
 import React from "react";
 
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
 const Heading = () => {
+  const headingRef = useRef(null);
+
+  useGSAP(
+    () => {
+      gsap.from(headingRef.current, { y: 100, opacity: 0, duration: 1 }); // <-- automatically reverted
+    },
+    { dependencies: [] }
+  );
   return (
-    <h2 className="text-2xl text-fuchsia-800 lg:text-4xl">
+    <h2 ref={headingRef} className="text-2xl text-fuchsia-800 lg:text-4xl">
       <span>Your Mood, Your Inspiration: </span>
       <span
         className={
