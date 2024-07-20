@@ -15,7 +15,8 @@ const HeroImage = () => {
         scale: 0,
         opacity: 0,
         duration: 1,
-        delay: 0.6,
+        delay: 0.8,
+        ease: "power1",
       }); // <-- automatically reverted
     },
     { dependencies: [] }

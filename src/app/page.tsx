@@ -1,5 +1,4 @@
 import React from "react";
-import { FaRegCircleCheck } from "react-icons/fa6";
 import HeroImage from "@/components/home/HeroImage";
 import Heading from "@/components/home/Heading";
 import Bullets from "@/components/home/Bullets";

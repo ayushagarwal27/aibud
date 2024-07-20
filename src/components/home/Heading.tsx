@@ -10,7 +10,12 @@ const Heading = () => {
 
   useGSAP(
     () => {
-      gsap.from(headingRef.current, { y: 100, opacity: 0, duration: 1 }); // <-- automatically reverted
+      gsap.from(headingRef.current, {
+        y: 100,
+        opacity: 0,
+        duration: 1,
+        ease: "power1",
+      }); // <-- automatically reverted
     },
     { dependencies: [] }
   );
