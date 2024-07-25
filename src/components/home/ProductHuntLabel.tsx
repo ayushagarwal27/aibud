@@ -9,9 +9,10 @@ const ProductHuntLabel = () => {
   useGSAP(
     () => {
       gsap.from(labelRef.current, {
-        y: 100,
+        y: 50,
         opacity: 0,
-        duration: 2.5,
+        duration: 1.6,
+        delay: 0.8,
         ease: "bounce",
       }); // <-- automatically reverted
     },
