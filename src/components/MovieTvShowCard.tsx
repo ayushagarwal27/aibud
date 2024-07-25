@@ -18,7 +18,7 @@ const MovieTvShowCard: FC<DescriptiveCardProps> = ({ streamData, type }) => {
   const startsEmpty = 10 - startFilled;
   const { isTablet } = useScreenDetector();
   return (
-    <div className="flex flex-col lg:flex-row max-w-md overflow-hidden rounded-lg shadow-lg bg-gray-800">
+    <div className="flex flex-col lg:flex-row lg:min-w-96 max-w-md overflow-hidden rounded-lg shadow-lg bg-gray-800">
       <div className="w-full lg:w-1/3">
         {streamData ? (
           <ProgressiveImage
