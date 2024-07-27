@@ -85,6 +85,7 @@ export default function Home() {
             setData(null);
             handleMoodSelect(val);
           }}
+          isLoading={isLoading}
         />
         {isLoading && <Loading />}
         <div

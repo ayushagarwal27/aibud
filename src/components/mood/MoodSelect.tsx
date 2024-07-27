@@ -11,6 +11,7 @@ import {
 import { MoodTypes } from "@/app/mood/page";
 interface MoodSelect {
   handleMoodSelect: (selectedMood: MoodTypes) => void;
+  isLoading: boolean;
 }
 
 const moodData = [
@@ -36,9 +37,12 @@ const moodData = [
   { mood: "Amused", emoji: "😄" },
 ];
 
-const MoodSelect: FC<MoodSelect> = ({ handleMoodSelect }) => {
+const MoodSelect: FC<MoodSelect> = ({ handleMoodSelect, isLoading }) => {
   return (
-    <Select onValueChange={(value) => handleMoodSelect(value as MoodTypes)}>
+    <Select
+      onValueChange={(value) => handleMoodSelect(value as MoodTypes)}
+      disabled={isLoading}
+    >
       <SelectTrigger className="w-[250px] bg-amber-100 mt-[80px] mb-[20px]">
         <SelectValue placeholder="Select your mood" />
       </SelectTrigger>
