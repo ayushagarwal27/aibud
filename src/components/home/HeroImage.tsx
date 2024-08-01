@@ -13,9 +13,9 @@ const HeroImage = () => {
     () => {
       gsap.from(imageRef.current, {
         scale: 0,
-        opacity: 0,
-        duration: 1,
-        delay: 0.8,
+        autoAlpha: 0,
+        duration: 1.1,
+        delay: 0.7,
         ease: "power1",
       }); // <-- automatically reverted
     },
@@ -25,7 +25,7 @@ const HeroImage = () => {
   return (
     <figure
       ref={imageRef}
-      className="mt-6 ml-4 md:mt-none ms-auto relative z-[1] max-w-[88%] mx-auto md:max-w-lg w-[50rem] h-auto rounded-b-lg shadow-[0_2.75rem_3.5rem_-2rem_rgb(45_55_75_/_20%),_0_0_5rem_-2rem_rgb(45_55_75_/_15%)] dark:shadow-[0_2.75rem_3.5rem_-2rem_rgb(0_0_0_/_20%),_0_0_5rem_-2rem_rgb(0_0_0_/_15%)]"
+      className="invisible mt-6 ml-4 md:mt-none ms-auto relative z-[1] max-w-[88%] mx-auto md:max-w-lg w-[50rem] h-auto rounded-b-lg shadow-[0_2.75rem_3.5rem_-2rem_rgb(45_55_75_/_20%),_0_0_5rem_-2rem_rgb(45_55_75_/_15%)] dark:shadow-[0_2.75rem_3.5rem_-2rem_rgb(0_0_0_/_20%),_0_0_5rem_-2rem_rgb(0_0_0_/_15%)]"
     >
       <div className="relative flex items-center max-w-[50rem] bg-gray-800 rounded-t-lg py-2 px-24 dark:bg-neutral-700">
         <div className="flex space-x-1 absolute top-2/4 start-4 -translate-y-1">

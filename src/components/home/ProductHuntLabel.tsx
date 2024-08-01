@@ -10,7 +10,7 @@ const ProductHuntLabel = () => {
     () => {
       gsap.from(labelRef.current, {
         y: 50,
-        opacity: 0,
+        autoAlpha: 0,
         duration: 1.6,
         delay: 0.8,
         ease: "bounce",
@@ -21,7 +21,7 @@ const ProductHuntLabel = () => {
 
   return (
     <div
-      className={"w-fit mx-auto mb-3 mt-12  md:mt-2 md:mb-10"}
+      className={"w-fit mx-auto mb-3 mt-12  md:mt-2 md:mb-10 invisible"}
       ref={labelRef}
     >
       <a

@@ -11,16 +11,19 @@ const Heading = () => {
   useGSAP(
     () => {
       gsap.from(headingRef.current, {
-        y: 100,
-        opacity: 0,
-        duration: 1,
+        y: 10,
+        duration: 0.5,
+        autoAlpha: 0,
         ease: "power1",
-      }); // <-- automatically reverted
+      });
     },
     { dependencies: [] }
   );
   return (
-    <h2 ref={headingRef} className="text-2xl text-fuchsia-800 lg:text-4xl">
+    <h2
+      ref={headingRef}
+      className="text-2xl text-fuchsia-800 lg:text-4xl invisible"
+    >
       <span>Your Mood, Your Inspiration: </span>
       <span
         className={
